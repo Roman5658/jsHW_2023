@@ -147,7 +147,7 @@ console.log(swap([11,22,33,44], 0, 1))
 // Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD') // => 250
 
 let exchange = (sumUAH, currencyValues, exchangeCurrency) => {
-    for (const item of currencyValues) {
+    for (let item of currencyValues) {
         if (item.currency === exchangeCurrency)
             return sumUAH / item.value;
     }
