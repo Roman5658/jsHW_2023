@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<form name="creator" class="form wrapper">
+  <label class="flex">name:
+    <input type="text" name="name">
+  </label>
+  <label class="flex">surname:
+    <input type="text" name="surname">
+  </label>
+    <label class="flex">age:
+        <input type="number" name="age">
+    </label>
+
+  <button>Enter</button>
+</form>
+
+<script>
+
+let form = document.forms.creator;
+form.onsubmit = function (e) {
+    e.preventDefault();
+
+
+    let wrapper = document.createElement('div');
+    let name = document.createElement('div');
+    let surname = document.createElement('div')
+    let age = document.createElement('div')
+
+    name.innerText = this.name.value;
+    surname.innerText = this.surname.value;
+    age.innerText = this.age.value;
+
+    this.name.value = ''
+    this.surname.value = ''
+    this.age.value = ''
+
+    wrapper.append(name, surname, age)
+    document.body.appendChild(wrapper)
+}
+
+</script>
+
+</body>
+</html>

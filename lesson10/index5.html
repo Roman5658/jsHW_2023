@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<label for="rowCountInput">Кількість рядків:</label>
+<input type="number" id="rowCountInput" min="1"><br>
+
+<label for="cellCountInput">Кількість ячеєк:</label>
+<input type="number" id="cellCountInput" min="1"><br>
+
+<label for="cellContentInput">Вміст ячеєк:</label>
+<input type="text" id="cellContentInput"><br>
+
+<button id="createTableButton">Створити таблицю</button>
+
+<div id="tableContainer"></div>
+
+<script>
+  const rowCountInput = document.getElementById('rowCountInput');
+  const cellCountInput = document.getElementById('cellCountInput');
+  const cellContentInput = document.getElementById('cellContentInput');
+  const createTableButton = document.getElementById('createTableButton');
+  const tableContainer = document.getElementById('tableContainer');
+
+  createTableButton.addEventListener('click', () => {
+    const rowCount = parseInt(rowCountInput.value);
+    const cellCount = parseInt(cellCountInput.value);
+    const cellContent = cellContentInput.value;
+
+    if (isNaN(rowCount) || isNaN(cellCount) || rowCount < 1 || cellCount < 1) {
+      alert('Будь ласка, введіть коректні значення кількості рядків і ячеєк.');
+      return;
+    }
+
+    let tableHTML = '<table border="1">';
+    for (let i = 0; i < rowCount; i++) {
+      tableHTML += '<tr>';
+      for (let j = 0; j < cellCount; j++) {
+        tableHTML += `<td>${cellContent}</td>`;
+      }
+      tableHTML += '</tr>';
+    }
+    tableHTML += '</table>';
+
+    tableContainer.innerHTML = tableHTML;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="priceBlock">100грн</div>
+
+<script>
+  const priceBlock = document.getElementById('priceBlock');
+  const priceKey = 'lastPriceChange';
+
+  // Функція для отримання різниці в секундах між двома датами
+  function getSecondsDifference(date1, date2) {
+    const diff = Math.abs(date1 - date2);
+    return Math.floor(diff / 1000);
+  }
+
+  // Перевірка, коли востаннє відбувалось перезавантаження
+  const lastReloadTime = localStorage.getItem(priceKey);
+  const currentTime = new Date().getTime();
+  if (lastReloadTime) {
+    const secondsSinceLastReload = getSecondsDifference(currentTime, parseInt(lastReloadTime));
+
+    if (secondsSinceLastReload >= 10) {
+      // Зміна ціни на 10грн, якщо пройшло більше 10 секунд
+      const currentPrice = parseInt(priceBlock.textContent);
+      const newPrice = currentPrice + 10;
+      priceBlock.textContent = `${newPrice}грн`;
+      localStorage.setItem(priceKey, currentTime.toString());
+    }
+  } else {
+    // Встановлення часу для першого завантаження сторінки
+    localStorage.setItem(priceKey, currentTime.toString());
+  }
+</script>
+</body>
+</html>
