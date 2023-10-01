@@ -1,7 +1,15 @@
 body {
     margin: 0;
-    background: #2f4d43;
+    padding: 0;
+    background-image: url(
+
+    https://png.pngtree.com/thumb_back/fw800/background/20230707/pngtree-seamless-looping-traffic-stunning-3d-animation-of-high-speed-flying-lines-image_3796479.jpg
+    );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Закріплює фон */
 }
+
 #userList {
     display: flex;
     flex-wrap: wrap;
@@ -10,12 +18,15 @@ body {
 
 #userList > div {
     width: 48%;
+    height: 100%;
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ccc0c0;
-    background-color: #beb0b0;
+    background-image: url("https://wall-style.com.ua/tmp/cache/images/28/b5d/28b5dfc93e7d1935d50c56f6be4600a6.jpg");
+    background-size: cover;
     border-radius: 20px;
 }
+
 
 
 button {
