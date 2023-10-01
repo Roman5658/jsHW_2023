@@ -38,8 +38,10 @@ button {
     cursor: pointer;
     border-radius: 30px;
 
+
 }
 
 button:hover {
     background-color: #0056b3;
+    border: #537ea4;
 }
